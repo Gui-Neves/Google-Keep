@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./app/models/Note.js"></script>
+    <script src="./app/models/NoteList.js"></script>
+    <script src="./app/controllers/NoteController.js"></script>
+    <script src="./app/view/NoteView.js"></script>
+    <script src="./app/connection/Indexeddb.js"></script>
+    <script src= "./app/dao/NoteDao.js"></script>
+    <title>Google Keep</title>
+    <link rel="icon" href="./images/gk.png">
+</head>
+
+<body>
+
+    <header>
+        <h1>Notes</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form onsubmit="noteController._addNote(event)">
+                <div class="noteAdd">
+                    <textarea rows="1" placeholder="Title" class="inputTitle" id="title"></textarea>
+                    <textarea rows="5" placeholder="Take a note..." class=" inputContent" id="content"></textarea>
+
+                    <button class="noteButton" onclick=""><strong>Save</strong></button>
+                </div>
+            </form>
+            <h1>My Notes</h1>
+            <div class="viewContainer"></div>  
+        </div>
+    </main>
+    <script> let noteController = new NoteController();</script>
+</body>
