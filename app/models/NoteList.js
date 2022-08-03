@@ -9,6 +9,7 @@ class NoteList {
         console.log(note);
         this._list.push(note);
     }
+    
     remove(index){
         this._list[index] = null;
     }
@@ -16,7 +17,4 @@ class NoteList {
     get list() {
         return this._list;
     }
-
-
-
 }

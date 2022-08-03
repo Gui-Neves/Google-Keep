@@ -18,8 +18,4 @@ class Note {
     set noteContent(newContent) {
         this._noteContent = newContent;
     }
-
-
-
-
 }
