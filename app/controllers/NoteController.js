@@ -36,7 +36,6 @@ class NoteController {
         this._cleanForm();
     }
     _removeNote(index) {
-        console.log(index);
         Indexeddb.getConnection()
             .then(connection => new NoteDao(connection).removeNote(index)
                 .then((response) => {
@@ -60,5 +59,28 @@ class NoteController {
         this._title.focus();
     }
 
+    async _editNote(key) {
+        const newTitle =  document.querySelector(`.note-title-${key}`).value || ''
+        const newContent = document.querySelector(`.note-content-${key}`).value || ''
 
+        console.log(newTitle, newContent, 'content');
+
+        const con = await Indexeddb.getConnection();
+        
+        const updatedNote = new Note(newTitle, newContent);
+
+        console.log(updatedNote)
+
+        new NoteDao(con)
+            .editNote({ key, updatedNote })
+
+        
+          
+        new NoteDao(con).showNotes()
+            .then((myNotes) => {                
+                console.log(myNotes, 'myNotes');   
+                this._noteView.update(myNotes);               
+            })
+            .catch(e => console.log(e))
+    }
 }

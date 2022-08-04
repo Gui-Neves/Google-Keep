@@ -70,5 +70,20 @@ class NoteDao {
         });
     }
 
+    editNote(info) {
+        return new Promise((resolve, reject) => {
+            let addRequest = this._connection.transaction(["myNotes"], "readwrite")
+            let store = addRequest.objectStore("myNotes");
 
+            const req = store.put(info.updatedNote, info.key);
+        
+            req.onsuccess = () => {
+                resolve(console.log('success'));
+            }
+
+            req.onerror = () => {
+                reject(console.log('error'));
+            }
+        });
+    }
 }
