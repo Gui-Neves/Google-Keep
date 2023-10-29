@@ -15,11 +15,9 @@ header h1 {
     position: relative;
     background-color: transparent;
     text-align: center;
-    width: 50px;
+    padding: 0;
+   
     height: 27px;
-    left: 46%;
-    top: 27px;
-
 }
 .noteButton:hover{
     transition: background-color 1s;
@@ -28,28 +26,34 @@ header h1 {
 
 }
 .noteAdd{
-
     border: 2px solid rgb(224, 224, 224, 0.9);
     border-radius: 5px;
     max-width:598px;
-    width: 80%;
-    height: 204px;
+    width: 100%;
     margin: auto;
     margin-top:30px;
-    box-sizing: border-box;            
+    box-sizing: border-box; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;      
+    padding: 0 15px;     
 }
+
 textarea:focus{
     outline: none;
+  
 
 }
-textarea{
+textarea {
+    width: 100%;
     box-sizing: border-box;
     border: none;
     margin: 10px;
     display: block;
-    width: 97%;
     resize: none;
 }
+
 .inputTitle{
 
     font-size:18px;
@@ -69,11 +73,8 @@ textarea{
     background-color: transparent;
     text-align: center;
     border: none;
-    margin: auto;
-    width: 50px;
-    height: 27px;
-    top: 85px;
-    left: 180px;
+    padding: 0;
+    margin: 10px;
 }
 .noteButtonEdit:hover{
     transition: background-color 1s;
@@ -85,15 +86,11 @@ textarea{
     background-color: transparent;
     text-align: center;
     border: none;
-    margin: auto;
-    width: 50px;
-    height: 27px;
-    top: 85px;
-    left: 10px;
- 
+    padding: 0;
+    margin: 10px;
 }
- h1{
-  
+
+h1{
     border-top: 2px solid rgb(224, 224, 224, 0.6);
     text-align: center;
     margin-top: 30px;
@@ -102,23 +99,44 @@ textarea{
 .notesView {
     border: 2px solid rgb(224, 224, 224, 0.9);
     border-radius: 5px;
-    max-width:300px;
     width: 25%;
     height: 280px;
     margin-top:60px;
     box-sizing: border-box;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
 }
-.notesView textarea{
 
-    width: 80%;
+
+
+@media (max-width: 1200px) {
+    .notesView {
+        max-width: none;
+        margin: 25px;
+        width: auto;
+    }
+}
+.buttonsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-
-.viewContainer{
-
+.viewContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     justify-content: space-around;
+
+   
+}
+
+@media (max-width: 1200px) {
+    .viewContainer {
+        flex-direction: column;
+    }
 }
